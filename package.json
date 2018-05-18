@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cleybsoncardoso/ola-baia/issues"
   },
-  "homepage": "https://github.com/cleybsoncardoso/ola-baia#readme"
+  "homepage": "https://github.com/cleybsoncardoso/ola-baia#readme",
+  "dependencies": {
+    "firebase": "^5.0.3"
+  }
 }
