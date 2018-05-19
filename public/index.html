@@ -64,12 +64,11 @@
         <div class="row">
           <div v-for="rota in rotas" class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
+              <img class="card-img-top" height="200" :src="rota.stops[0].main_picture" alt="Card image cap">
               <div style="margin: 5px">
                 <p>{{rota.name}}</p>
                 <div class="row">
                   <div class="coracao">
-                    <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
                     <label for="cm_star-1">
                       <i class="fa"></i>
                     </label>
@@ -85,13 +84,13 @@
                     <label for="cm_star-4">
                       <i class="fa"></i>
                     </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
+                    <input type="radio" id="cm_star-4" name="fb" value="4"/>
                     <label for="cm_star-5">
                       <i class="fa"></i>
                     </label>
                     <input type="radio" id="cm_star-5" name="fb" value="5" />
                   </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
+                  <p style="font-size: 9px; margin-top: 5px;">{{Math.floor(Math.random()*1000000)}} pessoas gostaram desse roteiro</p>
                 </div>
                 <div style="font-size: 12px">
                   <p>
@@ -160,9 +159,18 @@
       data: {
         rotas: []
       }, created: () => {
-        getItineraries().then(value => {
-          app.rotas = value;
-          console.log(value)
+        getItineraries().then(its => {
+
+          its.forEach(it => {
+            console.log(it);
+            getGuide(it.id).then(guide => console.log(guide));
+            getStops(it.id).then(stops => {
+              it.stops = stops;
+              app.rotas.push(it);
+              console.log(it.stops)
+            })
+          })
+          
         })
       }
     })
