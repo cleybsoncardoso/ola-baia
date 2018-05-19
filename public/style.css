@@ -83,3 +83,35 @@ footer p {
 .search-result .col-md-12 {
   margin-bottom: 30px;
 }
+
+.summary {
+  border: 1px solid #000;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.summary .col-md-7 {
+  border-right: 1px solid rgba(0,0,0,.1);
+}
+
+.guia {
+
+}
+
+.pricing {
+  color: #707070;
+}
+
+.pricing .title {
+  font-weight: 600;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+.more-details {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
