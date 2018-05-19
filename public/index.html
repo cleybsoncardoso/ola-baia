@@ -20,12 +20,14 @@
 
   <header>
     <div class="container d-flex flex-column flex-md-row align-items-center p-3 bg-white border-bottom">
-      <img src="logo.png" class="mr-md-auto" height="40">
+      <a href="/" class="mr-md-auto">
+        <img src="logo.png" height="40">
+      </a>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 menu-header" href="#">Home</a>
-        <a class="p-2 menu-header" href="#">Roteiros</a>
-        <a class="p-2 menu-header" href="#">Sou Guia</a>
-        <a class="p-2 menu-header" href="#">Blog</a>
+        <a class="p-2 menu-header" href="/">Home</a>
+        <a class="p-2 menu-header" href="/">Roteiros</a>
+        <a class="p-2 menu-header" href="/">Sou Guia</a>
+        <a class="p-2 menu-header" href="/">Blog</a>
       </nav>
     </div>
   </header>
@@ -56,16 +58,16 @@
               <h3 class="title-card">Melhores roteiros</h3>
             </div>
             <div class="col-md-6 row">
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
+              <button type="button" onclick="sortByValue()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
+              <button type="button" onclick="sortByLikes()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
+              <button type="button" onclick="sortByViews()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div v-for="rota in rotas" class="col-md-4">
-            <div class="card mb-4 box-shadow">
+          <div v-for="rota in rotas" class="col-md-4" style="cursor: pointer;">
+            <div class="card mb-4 box-shadow" @click="detalhe(rota.id)">
               <img class="card-img-top" height="200" :src="rota.stops[0].main_picture" alt="Card image cap">
               <div style="margin: 5px">
                 <p>{{rota.name}}</p>
@@ -92,13 +94,13 @@
                     </label>
                     <input type="radio" id="cm_star-5" name="fb" value="5" />
                   </div>
-                  <p style="font-size: 9px; margin-top: 5px;">{{Math.floor(Math.random()*1000000)}} pessoas gostaram desse roteiro</p>
+                  <p style="font-size: 9px; margin-top: 5px;">{{rota.likes}} pessoas gostaram desse roteiro</p>
                 </div>
                 <div style="font-size: 12px">
                   <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
+                    <b>Duração do Roteiro:</b> {{Math.ceil(rota.days)}} dia(s)
                     <br>
-                    <b>Idioma:</b> Português e Inglês </p>
+                    <b>Idioma:</b> {{rota.language}} </p>
                   <p> A partir de
                     <b>R$ {{rota.price}}</b>
                   </p>
@@ -160,16 +162,29 @@
       el: '#app',
       data: {
         rotas: []
-      }, created: () => {
+      },
+      methods: {
+        detalhe: (id) => {
+          location.href = "details.html?id=" + id;
+        }
+      },
+      created: () => {
         getItineraries().then(its => {
 
           its.forEach(it => {
             console.log(it);
             getGuide(it.id).then(guide => console.log(guide));
             getStops(it.id).then(stops => {
-              it.stops = stops;
-              app.rotas.push(it);
-              console.log(it.stops)
+              getGuide(it.id).then(guide => {
+                it.language = guide.languages.join(", ");
+                it.stops = stops;
+                it.days = stops.reduce((acc, cur) => {
+                  acc += cur.duration_in_seconds;
+                  return acc;
+                }, 0) / 60 / 24 ;
+                app.rotas.push(it);
+                console.log(it.stops)
+              })
             })
           })
 
@@ -177,6 +192,17 @@
       }
     })
 
+    function sortByValue () {
+      app.rotas = app.rotas.sort((a,b) => a.price > b.price);
+    }
+
+    function sortByLikes () {
+      app.rotas = app.rotas.sort((a,b) => a.likes < b.likes);
+    }
+
+    function sortByViews () {
+      app.rotas = app.rotas.sort((a,b) => a.views < b.views);
+    }
   </script>
 </body>
 
