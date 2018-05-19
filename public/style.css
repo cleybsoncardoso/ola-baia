@@ -79,3 +79,7 @@ footer p {
 .coracao input[type=radio]:checked ~ label i.fa:before {
   color: #CCC;
 }
+
+.search-result .col-md-12 {
+  margin-bottom: 30px;
+}
