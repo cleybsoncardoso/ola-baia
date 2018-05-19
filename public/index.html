@@ -160,7 +160,13 @@
       el: '#app',
       data: {
         rotas: []
-      }, created: () => {
+      },
+      methods: {
+        detalhe: (id) => {
+          location.href = "details.html?id=" + id;
+        }
+      },
+      created: () => {
         getItineraries().then(its => {
 
           its.forEach(it => {

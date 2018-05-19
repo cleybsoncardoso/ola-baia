@@ -112,7 +112,7 @@
                       </p>
                     </div>
                     <div style="float: right;">
-                      <button type="button" class="btn btn-primary">Detalhes</button>
+                      <button type="button" class="btn btn-primary" @click="detalhe(rota.id)">Detalhes</button>
                     </div>
                   </div>
                 </div>
@@ -181,7 +181,13 @@
       el: '#app',
       data: {
         rotas: []
-      }, created: () => {
+      },
+      methods: {
+        detalhe: (id) => {
+          location.href = "details.html?id=" + id;
+        }
+      },
+      created: () => {
         getItinerariesByCategory(category).then(its => {
           its.forEach(it => {
             getStops(it.id).then(stops => {
