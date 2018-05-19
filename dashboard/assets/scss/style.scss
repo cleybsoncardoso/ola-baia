@@ -700,6 +700,13 @@ header .form-inline {
             font-size: 14px;
             line-height: 22px;
             padding: 5px 0;
+
+            .isDisabled {
+                color: currentColor;
+                cursor: not-allowed;
+                opacity: 0.5;
+                text-decoration: none;
+            }
         }
     }
     .user-avatar {
