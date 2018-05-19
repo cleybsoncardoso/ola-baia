@@ -29,8 +29,8 @@
 }
 @media (min-width: 768px) {
   .jumbotron {
-    padding-top: calc(var(--jumbotron-padding-y) * 2);
-    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    padding-top: calc(var(--jumbotron-padding-y) * 3);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 3);
   }
 }
 
@@ -46,6 +46,10 @@
   max-width: 40rem;
 }
 
+.jumbotron {
+  border-radius: 0px;
+}
+
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -55,4 +59,12 @@ footer p {
   margin-bottom: .25rem;
 }
 
+.card-deck .card {
+  min-width: 220px;
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
