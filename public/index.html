@@ -33,17 +33,19 @@
   <main role="main">
 
     <section class="jumbotron text-center" style="background-image: url(salvador.png); background-position: center;">
-      <div class="container">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Olá, qual experiência você quer viver hoje?" aria-label="Olá, qual experiência você quer viver hoje?"
-            aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn" type="button" style="background-color: white; box-shadow: 0px 0px  2px #858484">
-              <i class="fas fa-search" style="color: #cfcfcf"></i>
-            </button>
+      <form action="search.html" method="GET">
+        <div class="container">
+          <div class="input-group mb-3">
+            <input name="category" type="text" class="form-control" placeholder="Olá, qual experiência você quer viver hoje?" aria-label="Olá, qual experiência você quer viver hoje?"
+              aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn" type="button" style="background-color: white; box-shadow: 0px 0px  2px #858484">
+                <i class="fas fa-search" style="color: #cfcfcf"></i>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </section>
 
     <div id="app" class="bg-light py-5">
@@ -84,7 +86,7 @@
                     <label for="cm_star-4">
                       <i class="fa"></i>
                     </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4"/>
+                    <input type="radio" id="cm_star-4" name="fb" value="4" />
                     <label for="cm_star-5">
                       <i class="fa"></i>
                     </label>
@@ -170,7 +172,7 @@
               console.log(it.stops)
             })
           })
-          
+
         })
       }
     })
