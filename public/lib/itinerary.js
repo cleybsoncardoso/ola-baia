@@ -20,10 +20,23 @@ var getItineraryById = (id) => {
 }
 
 var getItinerariesByCategory = (category) => {
-    return db.collection("itineraries").where(`categories.${category}`, "==", true).get()
+    return db.collection("itineraries").get()
         .then(snaps => {
             var data = [];
-            snaps.forEach(snap => data.push(Object.assign({ id: snap.id }, snap.data())));
+            snaps.forEach(snap => {
+                if (snap.data().name.toUpperCase().indexOf(category.toUpperCase()) > -1) {
+                    data.push(Object.assign({ id: snap.id }, snap.data()))
+                } else {
+                    let insert = false;
+                    Object.keys(snap.data().categories).map(key => {
+                        if(key.toUpperCase().indexOf(category.toUpperCase()) > -1)
+                        if (!insert) {
+                            insert = true;
+                            data.push(Object.assign({ id: snap.id }, snap.data()))
+                        }
+                    })
+                }
+            });
             return Promise.resolve(data);
         })
         .catch(err => Promise.reject(err));
