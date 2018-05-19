@@ -180,6 +180,7 @@
                   return acc;
                 }, 0) / 60 / 24 ;
                 app.rotas.push(it);
+                app.rotas = app.rotas.sort((a,b) => a.name > b.name)
                 console.log(it.stops)
               })
             })
