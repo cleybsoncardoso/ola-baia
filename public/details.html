@@ -147,12 +147,8 @@
       <p class="float-right">
         <a href="#">Voltar ao Topo</a>
       </p>
-<<<<<<< HEAD
       <p>Feito com <i class="fas fa-heart" style="color: red;"></i> by Olá Bahia</p>
       <p>Time: Cleybson Cardoso, Diego Leite, Dilan Nery, Heitor Rodrigues e Vinicius Lima.</p>
-=======
-      <p>Feito com <span style="color:#db4437; font-size: 1.5rem">&hearts;</span> por Olá Bahia</p>
->>>>>>> c53659583b0e307ef7ec2cdf9c0f6dc88e30edf3
   </footer>
 
   <!-- Optional JavaScript -->
@@ -238,26 +234,36 @@
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var uluru = new google.maps.LatLng(rota.stops[0].location._lat, rota.stops[0].location._long);
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 80,
+          zoom: 40,
           center: uluru
         });
         
-        directionsDisplay.setMap(map);
-        
-        directionsService.route({
-            origin: new google.maps.LatLng(rota.stops[0].location._lat, rota.stops[0].location._long),
-            destination: new google.maps.LatLng(rota.stops[app.rota.stops.length-1].location._lat, rota.stops[app.rota.stops.length-1].location._long),
-            waypoints: rota.stops.map(stop => ({location: new google.maps.LatLng(stop.location._lat, stop.location._long), stopover: true})),
-            travelMode: 'DRIVING'
-          }, function(response, status) {
-            if (status === 'OK') {
-              directionsDisplay.setDirections(response);
-              var route = response.routes[0];
-            } else {
-              window.alert('Directions request failed due to ' + status);
-            }
+
+        if (rota.stops.length == 1) {
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: rota.stops[0].name
           });
-      }, 3000);
+        }
+        else {
+          directionsDisplay.setMap(map);
+
+          directionsService.route({
+              origin: new google.maps.LatLng(rota.stops[0].location._lat, rota.stops[0].location._long),
+              destination: new google.maps.LatLng(rota.stops[rota.stops.length-1].location._lat, rota.stops[rota.stops.length-1].location._long),
+              waypoints: rota.stops.map(stop => ({location: new google.maps.LatLng(stop.location._lat, stop.location._long), stopover: true})),
+              travelMode: 'DRIVING'
+            }, function(response, status) {
+              if (status === 'OK') {
+                directionsDisplay.setDirections(response);
+                var route = response.routes[0];
+              } else {
+                //window.alert('Directions request failed due to ' + status);
+              }
+            });
+        }
+      }, 4000);
       
     }
     
