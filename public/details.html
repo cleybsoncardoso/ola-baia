@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
   <title>Olá Baía</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
@@ -33,12 +34,12 @@
 
     <section class="jumbotron text-center" style="background-image: url(salvador.png); background-position: center;"></section>
 
-    <div class="container">
+    <div class="container" id="app">
       <div class="summary">
         <div class="row">
           <div class="col-md-7">
-            <h2>Ilha de Itaparica e Salinas de Maragogi</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis consequat nisl, non egestas erat facilisis vel. Aenean ut dignissim ex. Proin et commodo mauris, rutrum pulvinar lacus. Donec condimentum commodo est mollis viverra. Nunc elementum, sapien sed sodales dignissim, libero enim accumsan dolor, ut malesuada dui dolor ac leo.</p>
+            <h2>{{rota.name}}</h2>
+            <p>{{rota.description}}</p>
             <div class="coracao" style="padding:0px; display: inline-block; margin-right: 10px;">
               <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
               <label for="cm_star-1">
@@ -62,13 +63,13 @@
               </label>
               <input type="radio" id="cm_star-5" name="fb" value="5" />
             </div>
-            <span style="font-size: 9px;">870.000 pessoas gostaram desse roteiro</span>
+            <span style="font-size: 9px;">{{rota.likes}} pessoas gostaram desse roteiro</span>
             <hr>
             <div style="font-size: 12px;">
               <p>
-                <b>Duração do Roteiro:</b> 2 dias e 2 noites
+                <b>Duração do Roteiro:</b> {{Math.ceil(rota.days)}} dia(s)
                 <br>
-                <b>Idioma:</b> Português e Inglês
+                <b>Idioma:</b> {{rota.language}}
               </p>
             </div>
             <hr>
@@ -79,8 +80,8 @@
                 </div>
                 <div class="col-md-8">
                   <h5 style="color: #A8A8A8">Seu guia nesse roteiro</h5>
-                  <h2>Jorge Guia</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis consequat nisl, non egestas erat facilisis vel. Aenean ut dignissim ex.</p>
+                  <h2>{{rota.guide.name}}</h2>
+                  <p>{{rota.guide.description}}</p>
                   <div style="float: right;">
                     <button type="button" class="btn btn-primary">Entrar em contato</button>
                   </div>
@@ -90,16 +91,16 @@
           </div>
           <div class="col-md-5">
             <h2>Orçamento para esse roteiro</h2>
-            <h3 style="color: #00CF8D; font-weight: bold;">R$ 700,00</h3>
+            <h3 style="color: #00CF8D; font-weight: bold;">R$ {{rota.price}}</h3>
             <hr>
             <div class="pricing">
-              <p class="title">Alimentação ..................................... R$ 230,00</p>
+              <p class="title">Alimentação ..................................... R$ {{rota.price/3}}</p>
               <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
 
-              <p class="title">Alimentação ..................................... R$ 230,00</p>
+              <p class="title">Alimentação ..................................... R$ {{rota.price/3}}</p>
               <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
 
-              <p class="title">Alimentação ..................................... R$ 230,00</p>
+              <p class="title">Alimentação ..................................... R$ {{rota.price/3}}</p>
               <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
             </div>
           </div>
@@ -151,6 +152,24 @@
   <script src="holder.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
   <script>
+
+  </script>
+  <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+  </script>
+  <script src="./lib/itinerary.js"></script>
+  
+  <script>
+    var id = getParameterByName("id");
+
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyDsCcKMRngL9JSanuWcwoWwV_uQ3c6abuE",
@@ -161,23 +180,77 @@
       messagingSenderId: "363436448639"
     };
     firebase.initializeApp(config);
-  </script>
-  <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
+
+    // Initialize Firebase
+    var db = firebase.firestore();
+    db.settings({ timestampsInSnapshots: true });
+
+    var rota = {};
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        rota: {
+          guide: {}
+        }
+      },
+      created: () => {
+        getItineraryById(id).then(it => {
+
+          console.log(it);
+          getStops(id).then(stops => {
+            getGuide(id).then(guide => {
+              console.log(guide);
+              it.language = guide.languages.join(", ");
+              it.stops = stops;
+              it.guide = guide;
+              it.days = stops.reduce((acc, cur) => {
+                acc += cur.duration_in_seconds;
+                return acc;
+              }, 0) / 60 / 24 ;
+              app.rota = it;
+              rota = it;
+              console.log(it.stops)
+            })
+          })
+
+        })
+      }
+    })
+
+    function initMap() {
+      setTimeout(() => {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var uluru = new google.maps.LatLng(rota.stops[0].location._lat, rota.stops[0].location._long);
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 110,
           center: uluru
         });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbnu4jRF4B6JZVDmyr7Ue4_bXIIXuBq7M&callback=initMap">
-    </script>
+        
+        directionsDisplay.setMap(map);
+        
+        directionsService.route({
+            origin: new google.maps.LatLng(rota.stops[0].location._lat, rota.stops[0].location._long),
+            destination: new google.maps.LatLng(rota.stops[app.rota.stops.length-1].location._lat, rota.stops[app.rota.stops.length-1].location._long),
+            waypoints: rota.stops.map(stop => ({location: new google.maps.LatLng(stop.location._lat, stop.location._long), stopover: true})),
+            travelMode: 'DRIVING'
+          }, function(response, status) {
+            if (status === 'OK') {
+              directionsDisplay.setDirections(response);
+              var route = response.routes[0];
+            } else {
+              window.alert('Directions request failed due to ' + status);
+            }
+          });
+      }, 3000);
+      
+    }
+    
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbnu4jRF4B6JZVDmyr7Ue4_bXIIXuBq7M&callback=initMap">
+  </script>
 </body>
 
 </html>
