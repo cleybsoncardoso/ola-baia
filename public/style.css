@@ -35,7 +35,6 @@
 }
 .btn-filter{
   padding: 0 25px 0 25px;
-  border-radius: 50px;
   height: 25px;
   margin: 4px;
   font-size: 15px;
@@ -128,9 +127,4 @@ footer p {
 #map {
   height: 400px;
   width: 100%;
-}
-
-.more-details {
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
