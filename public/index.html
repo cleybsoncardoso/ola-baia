@@ -21,13 +21,12 @@
   <header>
     <div class="container d-flex flex-column flex-md-row align-items-center p-3 bg-white border-bottom">
       <a href="/" class="mr-md-auto">
-        <img src="logo.png" height="40">
+        <img src="logo.png" height="50">
       </a>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 menu-header" href="/">Home</a>
         <a class="p-2 menu-header" href="/">Roteiros</a>
-        <a class="p-2 menu-header" href="/">Sou Guia</a>
-        <a class="p-2 menu-header" href="/">Blog</a>
+        <a class="p-2 menu-header" href="http://www.bahia.com.br/segmentos/" target="_blank">Blog</a>
+        <a class="p-2 menu-header" href="/dashboard">Painel de Controle</a>
       </nav>
     </div>
   </header>
@@ -59,9 +58,9 @@
             </div>
             <div class="col-md-6">
               <div style="float: right;">
-                <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
+                <button type="button" onclick="sortByValue()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
+                <button type="button" onclick="sortByLikes()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
+                <button type="button" onclick="sortByViews()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
               </div>
             </div>
           </div>
@@ -120,13 +119,10 @@
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
-        <a href="#">Back to top</a>
+        <a href="#">Voltar ao Topo</a>
       </p>
-      <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-      <p>New to Bootstrap?
-        <a href="../../">Visit the homepage</a> or read our
-        <a href="../../getting-started/">getting started guide</a>.</p>
-    </div>
+      <p>Feito com <i class="fas fa-heart" style="color: red;"></i> by Olá Bahia</p>
+      <p>Time: Cleybson Cardoso, Diego Leite, Dilan Nery, Heitor Rodrigues e Vinicius Lima.</p>
   </footer>
 
   <!-- Optional JavaScript -->

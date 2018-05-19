@@ -31,6 +31,12 @@ Agora basta rodar o comando na pasta do projeto:
 firebase deploy
 ```
 
+## How to use
+
+```
+Visit: http://127.0.0.1:8888
+```
+
 ## Colaboradores
 
 Heitor Rodrigues  
