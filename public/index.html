@@ -64,8 +64,8 @@
         </div>
 
         <div class="row">
-          <div v-for="rota in rotas" class="col-md-4">
-            <div class="card mb-4 box-shadow">
+          <div v-for="rota in rotas" class="col-md-4" style="cursor: pointer;">
+            <div class="card mb-4 box-shadow" @click="detalhe(rota.id)">
               <img class="card-img-top" height="200" :src="rota.stops[0].main_picture" alt="Card image cap">
               <div style="margin: 5px">
                 <p>{{rota.name}}</p>
