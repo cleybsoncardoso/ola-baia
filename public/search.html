@@ -21,20 +21,19 @@
 
   <header>
     <div class="container d-flex flex-column flex-md-row align-items-center p-3 bg-white border-bottom">
-      <a href="index.html" class="mr-md-auto">
+      <a href="/" class="mr-md-auto">
         <img src="logo.png" height="40">
       </a>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 menu-header" href="#">Home</a>
-        <a class="p-2 menu-header" href="#">Roteiros</a>
-        <a class="p-2 menu-header" href="#">Sou Guia</a>
-        <a class="p-2 menu-header" href="#">Blog</a>
+        <a class="p-2 menu-header" href="/">Home</a>
+        <a class="p-2 menu-header" href="/">Roteiros</a>
+        <a class="p-2 menu-header" href="/">Sou Guia</a>
+        <a class="p-2 menu-header" href="/">Blog</a>
       </nav>
     </div>
   </header>
 
   <main role="main">
-
     <section class="jumbotron text-center" style="background-image: url(salvador.png); background-position: center;">
       <form method="get">
         <div class="container">
@@ -53,15 +52,17 @@
 
     <div class="bg-light py-5">
       <div class="container">
-        <div class="card-body">
+        <div class="card-body" style="padding-left: 0px; padding-right: 0px; padding-top: 0px;">
           <div class="row">
             <div class="col-md-6">
               <h3 class="title-card">Melhores roteiros</h3>
             </div>
-            <div class="col-md-6 row">
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
+            <div class="col-md-6">
+              <div style="float: right;">
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
+              </div>
             </div>
           </div>
         </div>
@@ -123,7 +124,6 @@
         </div>
       </div>
     </div>
-
   </main>
 
   <footer class="text-muted">
