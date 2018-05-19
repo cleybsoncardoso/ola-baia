@@ -54,9 +54,9 @@
               <h3 class="title-card">Melhores roteiros</h3>
             </div>
             <div class="col-md-6 row">
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
+              <button type="button" onclick="sortByValue()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Barato</button>
+              <button type="button" onclick="sortByLikes()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Avaliados</button>
+              <button type="button" onclick="sortByViews()" class="btn btn-sm btn-outline-secondary btn-filter">Mais Visitados</button>
             </div>
           </div>
         </div>
@@ -90,13 +90,13 @@
                     </label>
                     <input type="radio" id="cm_star-5" name="fb" value="5" />
                   </div>
-                  <p style="font-size: 9px; margin-top: 5px;">{{Math.floor(Math.random()*1000000)}} pessoas gostaram desse roteiro</p>
+                  <p style="font-size: 9px; margin-top: 5px;">{{rota.likes}} pessoas gostaram desse roteiro</p>
                 </div>
                 <div style="font-size: 12px">
                   <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
+                    <b>Duração do Roteiro:</b> {{Math.ceil(rota.days)}} dia(s)
                     <br>
-                    <b>Idioma:</b> Português e Inglês </p>
+                    <b>Idioma:</b> {{rota.language}} </p>
                   <p> A partir de
                     <b>R$ {{rota.price}}</b>
                   </p>
@@ -165,9 +165,16 @@
             console.log(it);
             getGuide(it.id).then(guide => console.log(guide));
             getStops(it.id).then(stops => {
-              it.stops = stops;
-              app.rotas.push(it);
-              console.log(it.stops)
+              getGuide(it.id).then(guide => {
+                it.language = guide.languages.join(", ");
+                it.stops = stops;
+                it.days = stops.reduce((acc, cur) => {
+                  acc += cur.duration_in_seconds;
+                  return acc;
+                }, 0) / 60 / 24 ;
+                app.rotas.push(it);
+                console.log(it.stops)
+              })
             })
           })
           
@@ -175,6 +182,17 @@
       }
     })
 
+    function sortByValue () {
+      app.rotas = app.rotas.sort((a,b) => a.price > b.price);
+    }
+
+    function sortByLikes () {
+      app.rotas = app.rotas.sort((a,b) => a.likes < b.likes);
+    }
+
+    function sortByViews () {
+      app.rotas = app.rotas.sort((a,b) => a.views < b.views);
+    }
   </script>
 </body>
 
