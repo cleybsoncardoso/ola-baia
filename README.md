@@ -33,9 +33,9 @@ firebase deploy
 
 ## How to use
 
-Tool: http://127.0.0.1:8888/
-
-Dashboard: http://127.0.0.1:8888/dashboard
+```
+Visit: http://127.0.0.1:8888
+```
 
 ## Colaboradores
 
