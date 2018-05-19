@@ -31,6 +31,12 @@ Agora basta rodar o comando na pasta do projeto:
 firebase deploy
 ```
 
+## How to use
+
+Tool: http://127.0.0.1:8888/
+
+Dashboard: http://127.0.0.1:8888/dashboard
+
 ## Colaboradores
 
 Heitor Rodrigues  
