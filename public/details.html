@@ -96,13 +96,13 @@
             <h3 style="color: #00CF8D; font-weight: bold;">R$ {{rota.price}}</h3>
             <hr>
             <div class="pricing">
-              <p class="title">Alimentação ..................................... R$ {{rota.price/3}}</p>
+              <p class="title">Alimentação ..................................... R$ {{Number.parseFloat(rota.price/3).toFixed(2)}}</p>
               <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
 
-              <p class="title">Alimentação ..................................... R$ {{rota.price/3}}</p>
+              <p class="title">Alimentação ..................................... R$ {{Number.parseFloat(rota.price/3).toFixed(2)}}</p>
               <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
 
-              <p class="title">Alimentação ..................................... R$ {{rota.price/3}}</p>
+              <p class="title">Alimentação ..................................... R$ {{Number.parseFloat(rota.price/3).toFixed(2)}}</p>
               <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
             </div>
           </div>
@@ -233,7 +233,7 @@
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var uluru = new google.maps.LatLng(rota.stops[0].location._lat, rota.stops[0].location._long);
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 110,
+          zoom: 80,
           center: uluru
         });
         
