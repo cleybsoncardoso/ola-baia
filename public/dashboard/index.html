@@ -22,6 +22,7 @@
     crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="assets/scss/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -192,68 +193,21 @@
         <div id="map"></div>
 
         <div class="content mt-3">
-            <div class="col-xl-6">
+            <div class="col-xl-6" id="app">
                 <p style="font-size: 20px">Ranking de Rotas</p>
-                            <div class="card">
+                            <div class="card" v-for="rota in rotas">
                                 <div class="card-body">
                                     <div class="stat-widget-one">
-                                        <div class="stat-icon dib"><p style="font-size: 50px; color: black; margin-top: 20px;">1º</p></div>
+                                        <div class="stat-icon dib"><p style="font-size: 50px; color: black; margin-top: 20px;">{{rota.ranking}}º</p></div>
                                         <div class="stat-content dib">
-                                            <div class="stat-text">Ilha de Itaparica</div>
-                                            <div class="stat-digit count">1012</div>
+                                            <div class="stat-text">{{rota.name}}</div>
+                                            <div class="stat-digit">{{rota.views}}</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="stat-widget-one">
-                                        <div class="stat-icon dib"><p style="font-size: 50px; color: black; margin-top: 20px;">2º</p></div>
-                                        <div class="stat-content dib">
-                                            <div class="stat-text">Cacha Prego</div>
-                                            <div class="stat-digit count">961</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="stat-widget-one">
-                                        <div class="stat-icon dib"><p style="font-size: 50px; color: black; margin-top: 20px;">3º</p></div>
-                                        <div class="stat-content dib">
-                                            <div class="stat-text">Ilha da Madre</div>
-                                            <div class="stat-digit count">770</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="card">
-                                    <div class="card-body">
-                                        <div class="stat-widget-one">
-                                            <div class="stat-icon dib"><p style="font-size: 50px; color: black; margin-top: 20px;">4º</p></div>
-                                            <div class="stat-content dib">
-                                                <div class="stat-text">Ilha de Vera Cruz</div>
-                                                <div class="stat-digit count">512</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="stat-widget-one">
-                                            <div class="stat-icon dib"><p style="font-size: 50px; color: black; margin-top: 20px;">5º</p></div>
-                                            <div class="stat-content dib">
-                                                <div class="stat-text">Praia Ponta de Areia</div>
-                                                <div class="stat-digit count">401</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
             </div>
 
             <div class="col-xl-6">
@@ -271,34 +225,34 @@
                         </div>
 
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer" id="app2">
                         <ul>
                             <li>
-                                <div class="text-muted">Ilha de Itaparica</div>
+                                <div class="text-muted">Circuito Náutico de Cacha-Pregos</div>
                                 <div class="progress progress-xs mt-2" style="height: 5px;">
                                     <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </li>
                             <li class="hidden-sm-down">
-                                <div class="text-muted">Cacha Prego</div>
+                                <div class="text-muted">Rolé perfeito para os últimos dias do Verão</div>
                                 <div class="progress progress-xs mt-2" style="height: 5px;">
                                     <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </li>
                             <li>
-                                <div class="text-muted">Ilha da Madre</div>
+                                <div class="text-muted">Forte São Marcelo</div>
                                 <div class="progress progress-xs mt-2" style="height: 5px;">
                                     <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </li>
                             <li class="hidden-sm-down">
-                                <div class="text-muted">Ilha de Vera Cruz</div>
+                                <div class="text-muted">Visita a Cacha-Pregos</div>
                                 <div class="progress progress-xs mt-2" style="height: 5px;">
                                     <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </li>
                             <li class="hidden-sm-down">
-                                <div class="text-muted">Praia Ponta de Areia</div>
+                                <div class="text-muted">Arqueologia na Baía</div>
                                 <div class="progress progress-xs mt-2" style="height: 5px;">
                                     <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -323,6 +277,24 @@
     <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/widgets.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+  <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyDsCcKMRngL9JSanuWcwoWwV_uQ3c6abuE",
+          authDomain: "ola-baia.firebaseapp.com",
+          databaseURL: "https://ola-baia.firebaseio.com",
+          projectId: "ola-baia",
+          storageBucket: "ola-baia.appspot.com",
+          messagingSenderId: "363436448639"
+        };
+        firebase.initializeApp(config);
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+    
+    
+      </script>
+      <script src="../lib/itinerary.js"></script>    
     <script>
 
             // This example requires the Visualization library. Include the libraries=visualization
@@ -413,11 +385,54 @@
                 new google.maps.LatLng(-13.0806214,-38.8028371),
               ];
             }
+
+           
           </script>
           <script async defer
               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbnu4jRF4B6JZVDmyr7Ue4_bXIIXuBq7M&libraries=visualization&callback=initMap">
           </script>
+    <script>
 
+        var app = new Vue({
+          el: '#app',
+          data: {
+            rotas: []
+          },
+          methods: {
+            detalhe: (id) => {
+              location.href = "details.html?id=" + id;
+            }
+          },
+          created: () => {
+            getItineraries().then(its => {
+    
+              its.forEach(it => {
+                console.log(it);
+                getGuide(it.id).then(guide => console.log(guide));
+                getStops(it.id).then(stops => {
+                  getGuide(it.id).then(guide => {
+                    it.language = guide.languages.join(", ");
+                    it.stops = stops;
+                    it.days = stops.reduce((acc, cur) => {
+                      acc += cur.duration_in_seconds;
+                      return acc;
+                    }, 0) / 60 / 24 ;
+                    app.rotas.push(it);
+                    sortByViews();
+                  })
+                })
+              })
+              
+            })
+          }
+        })
+    
+    
+        function sortByViews () {
+          app.rotas = app.rotas.sort((a,b) => a.views < b.views).filter((rota, index) => index < 5);
+          app.rotas.map((rota, index) => rota.ranking = index + 1);
+        }
+      </script>
 
 </body>
 </html>
