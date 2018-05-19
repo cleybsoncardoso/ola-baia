@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <title>Olá Baía</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="container d-flex flex-column flex-md-row align-items-center p-3 bg-white border-bottom">
+      <img src="logo.png" class="mr-md-auto" height="40">
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 menu-header" href="#">Home</a>
+        <a class="p-2 menu-header" href="#">Roteiros</a>
+        <a class="p-2 menu-header" href="#">Sou Guia</a>
+        <a class="p-2 menu-header" href="#">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center" style="background-image: url(salvador.png); background-position: center;"></section>
+
+    <div class="container">
+      <div class="summary">
+        <div class="row">
+          <div class="col-md-7">
+            <h2>Ilha de Itaparica e Salinas de Maragogi</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis consequat nisl, non egestas erat facilisis vel. Aenean ut dignissim ex. Proin et commodo mauris, rutrum pulvinar lacus. Donec condimentum commodo est mollis viverra. Nunc elementum, sapien sed sodales dignissim, libero enim accumsan dolor, ut malesuada dui dolor ac leo.</p>
+            <div class="coracao" style="padding:0px; display: inline-block; margin-right: 10px;">
+              <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
+              <label for="cm_star-1">
+                <i class="fa"></i>
+              </label>
+              <input type="radio" id="cm_star-1" name="fb" value="1" />
+              <label for="cm_star-2">
+                <i class="fa"></i>
+              </label>
+              <input type="radio" id="cm_star-2" name="fb" value="2" />
+              <label for="cm_star-3">
+                <i class="fa"></i>
+              </label>
+              <input type="radio" id="cm_star-3" name="fb" value="3" />
+              <label for="cm_star-4">
+                <i class="fa"></i>
+              </label>
+              <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
+              <label for="cm_star-5">
+                <i class="fa"></i>
+              </label>
+              <input type="radio" id="cm_star-5" name="fb" value="5" />
+            </div>
+            <span style="font-size: 9px;">870.000 pessoas gostaram desse roteiro</span>
+            <hr>
+            <div style="font-size: 12px;">
+              <p>
+                <b>Duração do Roteiro:</b> 2 dias e 2 noites
+                <br>
+                <b>Idioma:</b> Português e Inglês
+              </p>
+            </div>
+            <hr>
+            <div class="guia">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="guia.png" width="100%">
+                </div>
+                <div class="col-md-8">
+                  <h5 style="color: #A8A8A8">Seu guia nesse roteiro</h5>
+                  <h2>Jorge Guia</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis consequat nisl, non egestas erat facilisis vel. Aenean ut dignissim ex.</p>
+                  <div style="float: right;">
+                    <button type="button" class="btn btn-primary">Entrar em contato</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <h2>Orçamento para esse roteiro</h2>
+            <h3 style="color: #00CF8D; font-weight: bold;">R$ 700,00</h3>
+            <hr>
+            <div class="pricing">
+              <p class="title">Alimentação ..................................... R$ 230,00</p>
+              <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
+
+              <p class="title">Alimentação ..................................... R$ 230,00</p>
+              <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
+
+              <p class="title">Alimentação ..................................... R$ 230,00</p>
+              <p class="description">Café da manhã; Almoço; Jantar. (Todos os dias)</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="more-details">
+          <h3 class="title-card">Detalhas do roteiro</h3>
+          <div id="map"></div>
+
+          <div style="margin-top: 20px; margin-bottom: 20px">
+            <h4>Primeiro dia:</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis consequat nisl, non egestas erat facilisis vel. Aenean ut dignissim ex. Proin et commodo mauris, rutrum pulvinar lacus. Donec condimentum commodo est mollis viverra. Nunc elementum, sapien sed sodales dignissim, libero enim accumsan dolor, ut malesuada dui dolor ac leo. Donec vel aliquam magna. Nullam efficitur est orci, ut pretium metus facilisis vehicula. Suspendisse faucibus dolor eu euismod ultrices. Etiam ut pellentesque neque, vel maximus ligula. Sed vitae lacus mi.</p>
+          </div>
+
+          <div style="margin-top: 20px; margin-bottom: 20px">
+            <h4>Segundo dia:</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis consequat nisl, non egestas erat facilisis vel. Aenean ut dignissim ex. Proin et commodo mauris, rutrum pulvinar lacus. Donec condimentum commodo est mollis viverra. Nunc elementum, sapien sed sodales dignissim, libero enim accumsan dolor, ut malesuada dui dolor ac leo. Donec vel aliquam magna. Nullam efficitur est orci, ut pretium metus facilisis vehicula. Suspendisse faucibus dolor eu euismod ultrices. Etiam ut pellentesque neque, vel maximus ligula. Sed vitae lacus mi.</p>
+          </div>
+
+          <div style="margin-top: 20px; margin-bottom: 20px">
+            <h4>Terceiro dia:</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis consequat nisl, non egestas erat facilisis vel. Aenean ut dignissim ex. Proin et commodo mauris, rutrum pulvinar lacus. Donec condimentum commodo est mollis viverra. Nunc elementum, sapien sed sodales dignissim, libero enim accumsan dolor, ut malesuada dui dolor ac leo. Donec vel aliquam magna. Nullam efficitur est orci, ut pretium metus facilisis vehicula. Suspendisse faucibus dolor eu euismod ultrices. Etiam ut pellentesque neque, vel maximus ligula. Sed vitae lacus mi.</p>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+      <p>New to Bootstrap?
+        <a href="../../">Visit the homepage</a> or read our
+        <a href="../../getting-started/">getting started guide</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="holder.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDsCcKMRngL9JSanuWcwoWwV_uQ3c6abuE",
+      authDomain: "ola-baia.firebaseapp.com",
+      databaseURL: "https://ola-baia.firebaseio.com",
+      projectId: "ola-baia",
+      storageBucket: "ola-baia.appspot.com",
+      messagingSenderId: "363436448639"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbnu4jRF4B6JZVDmyr7Ue4_bXIIXuBq7M&callback=initMap">
+    </script>
+</body>
+
+</html>
