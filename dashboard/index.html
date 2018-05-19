@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="assets/scss/style.css">
 
@@ -113,7 +115,6 @@
                           <div class="dropdown-menu" aria-labelledby="message">
                             <p class="red">You have 4 Mails</p>
                             <a class="dropdown-item media bg-flat-color-1" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Jonathan Smith</span>
                                     <span class="time float-right">Just now</span>
@@ -121,7 +122,6 @@
                                 </span>
                             </a>
                             <a class="dropdown-item media bg-flat-color-4" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Jack Sanders</span>
                                     <span class="time float-right">5 minutes ago</span>
@@ -129,7 +129,6 @@
                                 </span>
                             </a>
                             <a class="dropdown-item media bg-flat-color-5" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Cheryl Wheeler</span>
                                     <span class="time float-right">10 minutes ago</span>
@@ -137,7 +136,6 @@
                                 </span>
                             </a>
                             <a class="dropdown-item media bg-flat-color-3" href="#">
-                                <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
                                 <span class="message media-body">
                                     <span class="name float-left">Rachel Santos</span>
                                     <span class="time float-right">15 minutes ago</span>
@@ -163,26 +161,6 @@
                                 <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
                                 <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
-
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language" >
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
                         </div>
                     </div>
 
@@ -365,37 +343,6 @@
               });
             }
       
-            function toggleHeatmap() {
-              heatmap.setMap(heatmap.getMap() ? null : map);
-            }
-      
-            function changeGradient() {
-              var gradient = [
-                'rgba(0, 255, 255, 0)',
-                'rgba(0, 255, 255, 1)',
-                'rgba(0, 191, 255, 1)',
-                'rgba(0, 127, 255, 1)',
-                'rgba(0, 63, 255, 1)',
-                'rgba(0, 0, 255, 1)',
-                'rgba(0, 0, 223, 1)',
-                'rgba(0, 0, 191, 1)',
-                'rgba(0, 0, 159, 1)',
-                'rgba(0, 0, 127, 1)',
-                'rgba(63, 0, 91, 1)',
-                'rgba(127, 0, 63, 1)',
-                'rgba(191, 0, 31, 1)',
-                'rgba(255, 0, 0, 1)'
-              ]
-              heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
-            }
-      
-            function changeRadius() {
-              heatmap.set('radius', heatmap.get('radius') ? null : 20);
-            }
-      
-            function changeOpacity() {
-              heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
-            }
       
             // Heatmap data: 500 Points
             function getPoints() {
@@ -411,15 +358,59 @@
                 new google.maps.LatLng(-12.8947712, -38.6881958),
                 new google.maps.LatLng(-12.9600243, -38.6215124),
                 new google.maps.LatLng(-12.9600240, -38.6215121),
+                new google.maps.LatLng(-12.9600241, -38.6215132),
+                new google.maps.LatLng(-12.9600241, -38.6215142),
+                new google.maps.LatLng(-12.9600241, -38.6215152),
                 new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600241, -38.6215122),
-                new google.maps.LatLng(-12.9600242, -38.6215123),
+                new google.maps.LatLng(-12.9600251, -38.6215112),
+                new google.maps.LatLng(-12.9600221, -38.6215132),
+                new google.maps.LatLng(-12.9600231, -38.6215162),
+                new google.maps.LatLng(-12.9600241, -38.6215182),
+                new google.maps.LatLng(-13.1188158, -38.7970957),
+                new google.maps.LatLng(-13.1188111, -38.7970947),
+                new google.maps.LatLng(-13.1188122, -38.7970937),
+                new google.maps.LatLng(-13.1188133, -38.7970927),
+                new google.maps.LatLng(-13.1188114, -38.7970957),
+                new google.maps.LatLng(-13.1188155, -38.7970967),
+                new google.maps.LatLng(-13.1188155, -38.7970967),
+                new google.maps.LatLng(-13.1182155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-13.1183155, -38.7970967),
+                new google.maps.LatLng(-12.78505, -38.6401557),
+                new google.maps.LatLng(-12.78502, -38.6401557),
+                new google.maps.LatLng(-12.78503, -38.6401557),
+                new google.maps.LatLng(-12.78501, -38.6401557),
+                new google.maps.LatLng(-12.78505, -38.6401557),
+                new google.maps.LatLng(-12.71505, -38.6401557),
+                new google.maps.LatLng(-12.72505, -38.6401557),
+                new google.maps.LatLng(-12.72505, -38.6401257),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.72505, -38.6501557),
+                new google.maps.LatLng(-12.960655,-38.6502177),
+                new google.maps.LatLng(-12.910655,-38.6502177),
+                new google.maps.LatLng(-12.970655,-38.6502177),
+                new google.maps.LatLng(-12.930655,-38.6502177),
+                new google.maps.LatLng(-12.920655,-38.6502177),
+                new google.maps.LatLng(-13.054049,-38.7124287),
+                new google.maps.LatLng(-13.054049,-38.7124287),
+                new google.maps.LatLng(-13.0606214,-38.8028371),
+                new google.maps.LatLng(-13.0706214,-38.8028371),
+                new google.maps.LatLng(-13.0806214,-38.8028371),
               ];
             }
           </script>

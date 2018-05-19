@@ -33,6 +33,22 @@
     padding-bottom: calc(var(--jumbotron-padding-y) * 3);
   }
 }
+.btn-filter{
+  padding: 0 25px 0 25px;
+  border-radius: 50px;
+  height: 25px;
+  margin: 4px;
+  font-size: 15px;
+}
+
+.title-card{
+  color: #01418a;
+  font-weight: bold;
+}
+.menu-header{
+  color: #1e5598;
+  font-weight: bold;
+}
 
 .jumbotron p:last-child {
   margin-bottom: 0;
@@ -68,3 +84,21 @@ footer p {
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
+.coracao{
+  padding: 0 10px 0 15px;
+}
+
+.coracao input[type=radio] {
+  display: none;
+}
+.coracao label i.fa:before {
+  content:'\f004';
+  color: red;
+}
+.coracao input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
+}
+
+.search-result .col-md-12 {
+  margin-bottom: 30px;
+}
