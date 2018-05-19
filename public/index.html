@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
   <title>Olá Baía</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
@@ -45,7 +46,7 @@
       </div>
     </section>
 
-    <div class="bg-light py-5">
+    <div id="app" class="bg-light py-5">
       <div class="container">
         <div class="card-body">
           <div class="row">
@@ -61,11 +62,11 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4">
+          <div v-for="rota in rotas" class="col-md-4">
             <div class="card mb-4 box-shadow">
               <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
               <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
+                <p>{{rota.name}}</p>
                 <div class="row">
                   <div class="coracao">
                     <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
@@ -98,304 +99,7 @@
                     <br>
                     <b>Idioma:</b> Português e Inglês </p>
                   <p> A partir de
-                    <b>R$ 700</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
-              <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
-                <div class="row">
-                  <div class="coracao">
-                    <label for="cm_star-1">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-1" name="fb" value="1" />
-                    <label for="cm_star-2">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-2" name="fb" value="2" />
-                    <label for="cm_star-3">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-3" name="fb" value="3" />
-                    <label for="cm_star-4">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
-                    <label for="cm_star-5">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-5" name="fb" value="5" />
-                  </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
-                </div>
-                <div style="font-size: 12px">
-                  <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
-                    <br>
-                    <b>Idioma:</b> Português e Inglês </p>
-                  <p> A partir de
-                    <b>R$ 700</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
-              <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
-                <div class="row">
-                  <div class="coracao">
-                    <label for="cm_star-1">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-1" name="fb" value="1" />
-                    <label for="cm_star-2">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-2" name="fb" value="2" />
-                    <label for="cm_star-3">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-3" name="fb" value="3" />
-                    <label for="cm_star-4">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
-                    <label for="cm_star-5">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-5" name="fb" value="5" />
-                  </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
-                </div>
-                <div style="font-size: 12px">
-                  <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
-                    <br>
-                    <b>Idioma:</b> Português e Inglês </p>
-                  <p> A partir de
-                    <b>R$ 700</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
-              <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
-                <div class="row">
-                  <div class="coracao">
-                    <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
-                    <label for="cm_star-1">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-1" name="fb" value="1" />
-                    <label for="cm_star-2">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-2" name="fb" value="2" />
-                    <label for="cm_star-3">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-3" name="fb" value="3" />
-                    <label for="cm_star-4">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
-                    <label for="cm_star-5">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-5" name="fb" value="5" />
-                  </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
-                </div>
-                <div style="font-size: 12px">
-                  <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
-                    <br>
-                    <b>Idioma:</b> Português e Inglês </p>
-                  <p> A partir de
-                    <b>R$ 700</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
-              <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
-                <div class="row">
-                  <div class="coracao">
-                    <label for="cm_star-1">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-1" name="fb" value="1" />
-                    <label for="cm_star-2">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-2" name="fb" value="2" />
-                    <label for="cm_star-3">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-3" name="fb" value="3" />
-                    <label for="cm_star-4">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
-                    <label for="cm_star-5">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-5" name="fb" value="5" />
-                  </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
-                </div>
-                <div style="font-size: 12px">
-                  <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
-                    <br>
-                    <b>Idioma:</b> Português e Inglês </p>
-                  <p> A partir de
-                    <b>R$ 700</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
-              <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
-                <div class="row">
-                  <div class="coracao">
-                    <label for="cm_star-1">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-1" name="fb" value="1" />
-                    <label for="cm_star-2">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-2" name="fb" value="2" />
-                    <label for="cm_star-3">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-3" name="fb" value="3" />
-                    <label for="cm_star-4">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
-                    <label for="cm_star-5">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-5" name="fb" value="5" />
-                  </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
-                </div>
-                <div style="font-size: 12px">
-                  <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
-                    <br>
-                    <b>Idioma:</b> Português e Inglês </p>
-                  <p> A partir de
-                    <b>R$ 700</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
-              <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
-                <div class="row">
-                  <div class="coracao">
-                    <label for="cm_star-1">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-1" name="fb" value="1" />
-                    <label for="cm_star-2">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-2" name="fb" value="2" />
-                    <label for="cm_star-3">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-3" name="fb" value="3" />
-                    <label for="cm_star-4">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
-                    <label for="cm_star-5">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-5" name="fb" value="5" />
-                  </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
-                </div>
-                <div style="font-size: 12px">
-                  <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
-                    <br>
-                    <b>Idioma:</b> Português e Inglês </p>
-                  <p> A partir de
-                    <b>R$ 700</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="./image/ilha-de-itaparica-foto-jota-freitasgr.jpg" alt="Card image cap">
-              <div style="margin: 5px">
-                <p>Ilha de Itaparica e Salinas de Maragogi</p>
-                <div class="row">
-                  <div class="coracao">
-                    <input type="radio" id="cm_star-empty" name="fb" value=""/>
-                    <label for="cm_star-1">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-1" name="fb" value="1" />
-                    <label for="cm_star-2">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-2" name="fb" value="2" />
-                    <label for="cm_star-3">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-3" name="fb" value="3" />
-                    <label for="cm_star-4">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-4" name="fb" value="4" checked/>
-                    <label for="cm_star-5">
-                      <i class="fa"></i>
-                    </label>
-                    <input type="radio" id="cm_star-5" name="fb" value="5" />
-                  </div>
-                  <p style="font-size: 9px; margin-top: 5px;">870.000 pessoas gostaram desse roteiro</p>
-                </div>
-                <div style="font-size: 12px">
-                  <p>
-                    <b>Duração do Roteiro:</b> 2 dias e 2 noites
-                    <br>
-                    <b>Idioma:</b> Português e Inglês </p>
-                  <p> A partir de
-                    <b>R$ 700</b>
+                    <b>R$ {{rota.price}}</b>
                   </p>
                 </div>
               </div>
@@ -430,6 +134,7 @@
     crossorigin="anonymous"></script>
   <script src="holder.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
   <script>
     // Initialize Firebase
     var config = {
@@ -441,6 +146,27 @@
       messagingSenderId: "363436448639"
     };
     firebase.initializeApp(config);
+    const db = firebase.firestore();
+    db.settings({ timestampsInSnapshots: true });
+
+
+  </script>
+  <script src="../lib/itinerary.js"></script>
+
+  <script>
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        rotas: []
+      }, created: () => {
+        getItineraries().then(value => {
+          app.rotas = value;
+          console.log(value)
+        })
+      }
+    })
+
   </script>
 </body>
 
